@@ -11,16 +11,18 @@ var args = minimist(process.argv.slice(2))
 var call = args.call
 
 if(call!=='heads'&&call!=='tails') {
-	throw('invalid input!\n Usage: node guess-flip --call=[heads|tails]')
+	console.log("Error: no input.");
+    console.log("Usage: node guess-flip --call=[heads|tails]");
 }
+else {
+	var flip = coinFlip();
 
-var flip = coinFlip();
-
-console.log(
-		{call, 
-		flip, 
-		result:call===flip?'win':'lose'
-		}
-);
+	console.log(
+			{call, 
+			flip, 
+			result:call===flip?'win':'lose'
+			}
+	);
+}
 
 
